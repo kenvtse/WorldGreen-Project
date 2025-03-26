@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Akun - Ecogreen</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2e8b57;
+            --secondary-color: #3cb371;
+            --light-color: #f0fff0;
+            --dark-color: #1e3d1e;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .navbar {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: white !important;
+            font-size: 1.8rem;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-weight: 500;
+            margin: 0 8px;
+            transition: all 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: white !important;
+            transform: translateY(-2px);
+        }
+        
+        .register-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .register-card {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: none;
+        }
+        
+        .register-header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+        
+        .register-body {
+            padding: 30px;
+            background-color: white;
+        }
+        
+        .form-control {
+            height: 50px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            padding-left: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(46, 139, 87, 0.25);
+        }
+        
+        .btn-ecogreen {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        
+        .btn-ecogreen:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .register-footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+        
+        .register-footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .register-footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            color: #999;
+        }
+        
+        .divider::before, .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .divider::before {
+            margin-right: 10px;
+        }
+        
+        .divider::after {
+            margin-left: 10px;
+        }
+        
+        .password-strength {
+            height: 5px;
+            background-color: #eee;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .strength-meter {
+            height: 100%;
+            width: 0;
+            transition: all 0.3s;
+        }
+        
+        .strength-weak {
+            background-color: #ff4d4d;
+            width: 30%;
+        }
+        
+        .strength-medium {
+            background-color: #ffcc00;
+            width: 60%;
+        }
+        
+        .strength-strong {
+            background-color: #00cc66;
+            width: 100%;
+        }
+        
+        .password-hint {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: -15px;
+            margin-bottom: 15px;
+        }
+        
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .form-check-input:checked {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-leaf me-2"></i>Ecogreen
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Produk</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tentang Kami</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Kontak</a>
+                    </li>
+                </ul>
+                <a href="login.html" class="btn btn-light ms-lg-3" style="color: var(--primary-color);">Masuk</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Register Form -->
+    <div class="register-container">
+        <div class="register-card">
+            <div class="register-header">
+                <h3><i class="fas fa-user-plus me-2"></i>Buat Akun Baru</h3>
+                <p class="mb-0">Bergabunglah dengan komunitas Ecogreen</p>
+            </div>
+            <div class="register-body">
+                <form>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="firstName" class="form-label">Nama Depan</label>
+                            <input type="text" class="form-control" id="firstName" placeholder="Masukkan nama depan" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="lastName" class="form-label">Nama Belakang</label>
+                            <input type="text" class="form-control" id="lastName" placeholder="Masukkan nama belakang" required>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Alamat Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Masukkan email Anda" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Kata Sandi</label>
+                        <input type="password" class="form-control" id="password" placeholder="Buat kata sandi" required>
+                        <div class="password-strength mt-2">
+                            <div class="strength-meter" id="passwordMeter"></div>
+                        </div>
+                        <div class="password-hint">
+                            Gunakan 8 karakter atau lebih dengan kombinasi huruf, angka, dan simbol
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">Konfirmasi Kata Sandi</label>
+                        <input type="password" class="form-control" id="confirmPassword" placeholder="Ulangi kata sandi" required>
+                    </div>
+                    
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="newsletter">
+                        <label class="form-check-label" for="newsletter">Saya ingin menerima newsletter dan promo dari Ecogreen</label>
+                    </div>
+                    
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="terms" required>
+                        <label class="form-check-label" for="terms">Saya menyetujui <a href="#" style="color: var(--primary-color);">Syarat & Ketentuan</a> dan <a href="#" style="color: var(--primary-color);">Kebijakan Privasi</a> Ecogreen</label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-ecogreen mb-3">Daftar Sekarang</button>
+                    
+                    <div class="divider">Sudah punya akun?</div>
+                    
+                    <div class="register-footer">
+                        <a href="login.html">Masuk ke akun Anda</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Tentang Kami</a>
+                <a href="#">Kebijakan Privasi</a>
+                <a href="#">Syarat & Ketentuan</a>
+                <a href="#">Bantuan</a>
+                <a href="#">Kontak</a>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Ecogreen. Semua Hak Dilindungi.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Password strength indicator
+        const passwordInput = document.getElementById('password');
+        const passwordMeter = document.getElementById('passwordMeter');
+        
+        passwordInput.addEventListener('input', function() {
+            const password = this.value;
+            let strength = 0;
+            
+            // Check length
+            if (password.length >= 8) strength += 1;
+            if (password.length >= 12) strength += 1;
+            
+            // Check for mixed case
+            if (password.match(/[a-z]/) && password.match(/[A-Z]/)) strength += 1;
+            
+            // Check for numbers
+            if (password.match(/\d/)) strength += 1;
+            
+            // Check for special chars
+            if (password.match(/[^a-zA-Z0-9]/)) strength += 1;
+            
+            // Update meter
+            passwordMeter.className = 'strength-meter';
+            if (password.length === 0) {
+                passwordMeter.style.width = '0';
+            } else if (strength <= 2) {
+                passwordMeter.classList.add('strength-weak');
+            } else if (strength <= 4) {
+                passwordMeter.classList.add('strength-medium');
+            } else {
+                passwordMeter.classList.add('strength-strong');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigasi Ecogreen</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2e8b57;
+            --secondary-color: #3cb371;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .navigation-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 2rem;
+        }
+        
+        .nav-card {
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .nav-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-card .card-body {
+            padding: 25px;
+        }
+        
+        .nav-card .card-title {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .nav-card .card-text {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .btn-ecogreen {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-ecogreen:hover {
+            background-color: var(--secondary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .page-description {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #555;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navigation-container">
+            <div class="logo">
+                <i class="fas fa-leaf"></i> Ecogreen
+            </div>
+            
+            <p class="page-description">
+                Selamat datang di Ecogreen - Platform produk ramah lingkungan. 
+                Silakan pilih halaman yang ingin Anda tuju atau ikuti alur pendaftaran/login untuk mulai berbelanja.
+            </p>
+            
+            <div class="row">
+                <!-- Halaman Landing -->
+                <div class="col-md-6 mb-4">
+                    <div class="card nav-card h-100">
+                        <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Landing Page">
+                        <div class="card-body">
+                            <h5 class="card-title">Halaman Utama</h5>
+                            <p class="card-text">Temukan berbagai produk ramah lingkungan dan solusi berkelanjutan untuk gaya hidup hijau Anda.</p>
+                            <a href="landing.html" class="btn btn-ecogreen">Ke Halaman Utama</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Halaman Registrasi -->
+                <div class="col-md-6 mb-4">
+                    <div class="card nav-card h-100">
+                        <img src="https://images.unsplash.com/photo-1551269901-5c5e14c25df7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Registration">
+                        <div class="card-body">
+                            <h5 class="card-title">Registrasi Akun</h5>
+                            <p class="card-text">Bergabunglah dengan komunitas Ecogreen dan dapatkan akses ke penawaran khusus member.</p>
+                            <a href="registrasi.html" class="btn btn-ecogreen">Daftar Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Halaman Login -->
+                <div class="col-md-6 mb-4">
+                    <div class="card nav-card h-100">
+                        <img src="https://images.unsplash.com/photo-1505904267569-f02eaeb45a4c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Login">
+                        <div class="card-body">
+                            <h5 class="card-title">Login Akun</h5>
+                            <p class="card-text">Masuk ke akun Anda untuk melihat riwayat belanja, wishlist, dan penawaran khusus.</p>
+                            <a href="login.html" class="btn btn-ecogreen">Login Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Halaman Produk -->
+                <div class="col-md-6 mb-4">
+                    <div class="card nav-card h-100">
+                        <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Products">
+                        <div class="card-body">
+                            <h5 class="card-title">Produk Ecogreen</h5>
+                            <p class="card-text">Jelajahi berbagai produk ramah lingkungan kami yang dirancang untuk kehidupan berkelanjutan.</p>
+                            <a href="product.html" class="btn btn-ecogreen">Lihat Produk</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <p>Butuh bantuan? <a href="#" style="color: var(--primary-color);">Hubungi kami</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+</body>
+</html>
